@@ -1,9 +1,10 @@
 // src/components/layout/NavBar.jsx
 import { Link, NavLink } from "react-router-dom";
+import colors from "../../theme/colors";
 
 const navBarStyle = {
-  borderBottom: "1px solid #e5e7eb",
-  backgroundColor: "#ffffff",
+  borderBottom: `1px solid ${colors.border}`,
+  backgroundColor: colors.surface,
 };
 
 const navInnerStyle = {
@@ -26,26 +27,35 @@ function NavBar() {
     <header style={navBarStyle}>
       <nav style={navInnerStyle}>
         <Link
-          to="/home"
+          to="/"
           style={{
             fontWeight: 700,
             fontSize: "1.1rem",
-            color: "#2563eb",
+            color: colors.primaryDark,
           }}
         >
           TeleMed App
         </Link>
 
         <div style={{ display: "flex", gap: "0.5rem", alignItems: "center" }}>
-
+          <NavLink
+            to="/home"
+            style={({ isActive }) => ({
+              ...pillLink,
+              backgroundColor: isActive ? colors.primary : "transparent",
+              color: isActive ? colors.surface : colors.textMain,
+            })}
+          >
+            Home
+          </NavLink>
 
           <NavLink
             to="/accessibility"
             style={({ isActive }) => ({
               ...pillLink,
-              backgroundColor: isActive ? "#111827" : "transparent",
-              color: isActive ? "#ffffff" : "#111827",
-              border: "1px solid #111827",
+              backgroundColor: isActive ? colors.primaryDark : "transparent",
+              color: isActive ? colors.surface : colors.textMain,
+              border: `1px solid ${colors.primaryDark}`,
             })}
           >
             Accessibility

@@ -1,23 +1,25 @@
-// src/pages/Login.jsx
 import { useNavigate } from "react-router-dom";
+import colors from "../theme/colors";
 
 function Login() {
   const navigate = useNavigate();
 
   const handleFakeLogin = (e) => {
     e.preventDefault();
-    // later: validate, talk to backend, etc.
     navigate("/home");
   };
 
   return (
     <section style={{ maxWidth: "420px", margin: "2rem auto" }}>
-      <h2 style={{ marginBottom: "1rem" }}>Login</h2>
+      <h2 style={{ marginBottom: "1rem", color: colors.textMain }}>
+        Login
+      </h2>
+
       <form
         onSubmit={handleFakeLogin}
         style={{ display: "flex", flexDirection: "column", gap: "0.9rem" }}
       >
-        <label style={{ fontSize: "0.9rem" }}>
+        <label style={{ fontSize: "0.9rem", color: colors.textMain }}>
           Email
           <input
             type="email"
@@ -27,12 +29,12 @@ function Login() {
               marginTop: "0.25rem",
               padding: "0.5rem 0.6rem",
               borderRadius: "0.45rem",
-              border: "1px solid #d1d5db",
+              border: `1px solid ${colors.border}`,
             }}
           />
         </label>
 
-        <label style={{ fontSize: "0.9rem" }}>
+        <label style={{ fontSize: "0.9rem", color: colors.textMain }}>
           Password
           <input
             type="password"
@@ -42,7 +44,7 @@ function Login() {
               marginTop: "0.25rem",
               padding: "0.5rem 0.6rem",
               borderRadius: "0.45rem",
-              border: "1px solid #d1d5db",
+              border: `1px solid ${colors.border}`,
             }}
           />
         </label>
@@ -54,8 +56,8 @@ function Login() {
             padding: "0.6rem 1.4rem",
             borderRadius: "999px",
             border: "none",
-            backgroundColor: "#2563eb",
-            color: "#ffffff",
+            backgroundColor: colors.primary,
+            color: colors.surface,
             fontWeight: 600,
           }}
         >
