@@ -1,6 +1,5 @@
 // src/App.jsx
 import { Routes, Route } from "react-router-dom";
-import NavBar from "./components/layout/NavBar.jsx";
 
 import Start from "./pages/Start.jsx";
 import Login from "./pages/Login.jsx";
@@ -10,17 +9,36 @@ import Records from "./pages/Records.jsx";
 import Schedule from "./pages/Schedule.jsx";
 import AccessibilityPg from "./pages/AccessibilityPg.jsx";
 
-function App() {
-  return (
-    <div className="app">
-      {/* If you want to hide the NavBar on Start/Login, we can change this later */}
-      <NavBar />
+import colors from "./theme/colors";
 
-      <main
+export default function App() {
+  const footerStyle = {
+    padding: "0.75rem 1.25rem",
+    textAlign: "center",
+    backgroundColor: colors.danger,
+    color: colors.surface,
+    fontWeight: 600,
+    fontSize: "1rem",
+    flexShrink: 0,
+  };
+
+  return (
+    <div
+      style={{
+        minHeight: "100vh",
+        backgroundColor: colors.bgLight,
+        display: "flex",
+        flexDirection: "column",
+      }}
+    >
+      {/* Center whatever page content returns (its Card) */}
+      <div
         style={{
-          padding: "1.5rem",
-          maxWidth: "1200px",
-          margin: "0 auto",
+          flex: "1 0 auto",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          padding: "2rem",
         }}
       >
         <Routes>
@@ -32,9 +50,9 @@ function App() {
           <Route path="/schedule" element={<Schedule />} />
           <Route path="/accessibility" element={<AccessibilityPg />} />
         </Routes>
-      </main>
+      </div>
+
+      <footer style={footerStyle}>Do You Need Immediate Assistance?</footer>
     </div>
   );
 }
-
-export default App;

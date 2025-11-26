@@ -1,10 +1,22 @@
-// src/pages/AccessibiltyPg.jsx
-function AccessibiltyPg() {
+import Card from "../components/layout/Card.jsx";
+import NavBar from "../components/layout/NavBar.jsx";
+import colors from "../theme/colors";
+
+export default function AccessibilityPg() {
   return (
-    <section>
-      <h2>Accessibility Settings</h2>
-      <p>Later we can add font size, contrast, colorblind-friendly themes, etc.</p>
-    </section>
+    <Card size="narrow">
+      <NavBar />
+      <div style={{ padding: "2rem 2.5rem" }}>
+        <section style={{ maxWidth: "640px", margin: "0 auto" }}>
+          <h2 style={{ marginBottom: "0.75rem", color: colors.textMain }}>
+            Accessibility Settings
+          </h2>
+          <p style={{ color: colors.textMuted }}>
+            Later you can add options here for text size, high contrast, and
+            other settings to make the app easier to use.
+          </p>
+        </section>
+      </div>
+    </Card>
   );
 }
-export default AccessibiltyPg;

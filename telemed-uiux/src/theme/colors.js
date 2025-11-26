@@ -3,6 +3,7 @@ const colors = {
   primary: "#4BA3FF",
   primaryLight: "#D8ECFF",
   primaryDark: "#1F6FCC",
+  navBlue: "#123B7A",
 
   accent: "#FF7A59",
   success: "#32C48D",
