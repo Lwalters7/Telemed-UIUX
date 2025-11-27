@@ -8,7 +8,6 @@ export default function Start() {
 
   return (
     <Card size="narrow">
-      <NavBar />
       <div style={{ padding: "2rem 2.5rem" }}>
         <section style={{ maxWidth: "640px" }}>
           <h1

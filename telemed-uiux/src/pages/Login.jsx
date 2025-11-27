@@ -13,7 +13,6 @@ export default function Login() {
 
   return (
     <Card size="narrow">
-      <NavBar />
       <div style={{ padding: "2rem 2.5rem" }}>
         <section style={{ maxWidth: "420px", margin: "0 auto" }}>
           <h2

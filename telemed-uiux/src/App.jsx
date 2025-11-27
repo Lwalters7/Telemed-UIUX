@@ -1,5 +1,5 @@
 // src/App.jsx
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 
 import Start from "./pages/Start.jsx";
 import Login from "./pages/Login.jsx";
@@ -8,10 +8,15 @@ import Chatroom from "./pages/Chatroom.jsx";
 import Records from "./pages/Records.jsx";
 import Schedule from "./pages/Schedule.jsx";
 import AccessibilityPg from "./pages/AccessibilityPg.jsx";
+import Hotlines from "./pages/Hotlines.jsx";
 
 import colors from "./theme/colors";
 
+
+
 export default function App() {
+  const navigate = useNavigate();  // ⬅ add this
+
   const footerStyle = {
     padding: "0.75rem 1.25rem",
     textAlign: "center",
@@ -49,10 +54,20 @@ export default function App() {
           <Route path="/records" element={<Records />} />
           <Route path="/schedule" element={<Schedule />} />
           <Route path="/accessibility" element={<AccessibilityPg />} />
+          <Route path="/hotlines" element={<Hotlines />} />
         </Routes>
       </div>
 
-      <footer style={footerStyle}>Do You Need Immediate Assistance?</footer>
+      <footer
+        style={{
+          ...footerStyle,
+          cursor: "pointer",
+          textDecoration: "underline",
+        }}
+        onClick={() => navigate("/hotlines")}
+      >
+        Do You Need Immediate Assistance? Click HERE
+      </footer>
     </div>
   );
 }

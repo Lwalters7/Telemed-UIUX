@@ -14,6 +14,7 @@ const colors = {
   bgDark: "#101319",
   surface: "#FFFFFF",
   border: "#D3D9E5",
+  lgBackground: "#F7F9FC",
 
   textMain: "#1F2933",
   textMuted: "#6B7280",

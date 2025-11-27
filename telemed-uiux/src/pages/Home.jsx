@@ -3,90 +3,199 @@ import Card from "../components/layout/Card.jsx";
 import NavBar from "../components/layout/NavBar.jsx";
 import colors from "../theme/colors";
 
+import chatIcon from "../assets/chat.png";
+import recordsIcon from "../assets/records.png";
+import scheduleIcon from "../assets/schedule.png";
+
 export default function Home() {
   const navigate = useNavigate();
 
-  const cardButtonStyle = {
-    width: "100%",
-    textAlign: "left",
-    padding: "1rem 1.1rem",
-    borderRadius: "0.9rem",
-    border: `1px solid ${colors.border}`,
+  const circleButton = {
+    width: "160px",
+    height: "160px",
+    borderRadius: "50%",
     backgroundColor: colors.surface,
+    border: `2px solid ${colors.border}`,
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    cursor: "pointer",
+    boxShadow: "0 6px 20px rgba(0,0,0,0.08)",
+    transition: "transform 0.15s ease, boxShadow 0.15s ease",
+    overflow: "hidden", // keeps the icon clipped to circle
+  };
+
+  const circleHover = {
+    transform: "scale(1.05)",
+    boxShadow: "0 10px 28px rgba(0,0,0,0.12)",
+  };
+
+  // shared column style for icon + text label
+  const optionColumnBase = {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    gap: "0.75rem",
     cursor: "pointer",
   };
 
   return (
     <Card size="wide">
       <NavBar />
-      <div style={{ padding: "2rem 2.5rem" }}>
-        <section style={{ maxWidth: "650px", margin: "0 auto" }}>
-          <h2 style={{ marginBottom: "0.75rem", color: colors.textMain }}>
-            Home
-          </h2>
-          <p
-            style={{
-              color: colors.textMuted,
-              marginBottom: "1.5rem",
-            }}
-          >
-            Choose what you want to do today.
-          </p>
 
-          <div
+      <div style={{ padding: "2rem 2.5rem" }}>
+        <section style={{ textAlign: "center" }}>
+          {/* Header */}
+          <h2
             style={{
-              display: "flex",
-              flexDirection: "column",
-              gap: "0.9rem",
+              marginBottom: "2rem",
+              fontSize: "1.8rem",
+              fontWeight: 700,
+              color: colors.textMain,
             }}
           >
-            <button
-              style={cardButtonStyle}
+            How can we assist you today?
+          </h2>
+
+          {/* Triangle layout row */}
+         <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "flex-start", // or "center"
+            gap: "2.5rem",
+            flexWrap: "wrap",
+          }}
+        >
+
+            {/* LEFT – Message a Doctor (slightly lower) */}
+            <div
+              style={{
+                ...optionColumnBase,
+                marginTop: "1.5rem",
+              }}
               onClick={() => navigate("/chatroom")}
             >
-              <h3 style={{ margin: 0, marginBottom: "0.3rem" }}>Chatroom</h3>
-              <p
+              <div
+                style={circleButton}
+                onMouseEnter={(e) =>
+                  Object.assign(e.currentTarget.style, circleHover)
+                }
+                onMouseLeave={(e) =>
+                  Object.assign(e.currentTarget.style, {
+                    transform: "scale(1)",
+                    boxShadow: "0 6px 20px rgba(0,0,0,0.08)",
+                  })
+                }
+              >
+                <img
+                  src={chatIcon}
+                  alt="Chatroom"
+                  style={{
+                    width: "140%",
+                    height: "140%",
+                    borderRadius: "50%",
+                    objectFit: "cover",
+                  }}
+                />
+              </div>
+
+              <span
                 style={{
-                  margin: 0,
-                  fontSize: "0.9rem",
-                  color: colors.textMuted,
+                  fontSize: "0.95rem",
+                  fontWeight: 600,
+                  color: colors.textMain,
                 }}
               >
-                Join a secure chat with your provider.
-              </p>
-            </button>
+                Message your Doctor
+              </span>
+            </div>
 
-            <button
-              style={cardButtonStyle}
+            {/* CENTER – Records (highest point) */}
+            <div
+              style={{
+                ...optionColumnBase,
+                marginTop: 0, // top of the triangle
+              }}
               onClick={() => navigate("/records")}
             >
-              <h3 style={{ margin: 0, marginBottom: "0.3rem" }}>Records</h3>
-              <p
+              <div
+                style={circleButton}
+                onMouseEnter={(e) =>
+                  Object.assign(e.currentTarget.style, circleHover)
+                }
+                onMouseLeave={(e) =>
+                  Object.assign(e.currentTarget.style, {
+                    transform: "scale(1)",
+                    boxShadow: "0 6px 20px rgba(0,0,0,0.08)",
+                  })
+                }
+              >
+                <img
+                  src={recordsIcon}
+                  alt="Records"
+                  style={{
+                    width: "140%",
+                    height: "140%",
+                    borderRadius: "50%",
+                    objectFit: "cover",
+                  }}
+                />
+              </div>
+
+              <span
                 style={{
-                  margin: 0,
-                  fontSize: "0.9rem",
-                  color: colors.textMuted,
+                  fontSize: "0.95rem",
+                  fontWeight: 600,
+                  color: colors.textMain,
                 }}
               >
-                View visit summaries and medical notes.
-              </p>
-            </button>
+                View / Update your Records
+              </span>
+            </div>
 
-            <button
-              style={cardButtonStyle}
+            {/* RIGHT – Schedule an Appointment (slightly lower) */}
+            <div
+              style={{
+                ...optionColumnBase,
+                marginTop: "1.5rem",
+              }}
               onClick={() => navigate("/schedule")}
             >
-              <h3 style={{ margin: 0, marginBottom: "0.3rem" }}>Schedule</h3>
-              <p
+              <div
+                style={circleButton}
+                onMouseEnter={(e) =>
+                  Object.assign(e.currentTarget.style, circleHover)
+                }
+                onMouseLeave={(e) =>
+                  Object.assign(e.currentTarget.style, {
+                    transform: "scale(1)",
+                    boxShadow: "0 6px 20px rgba(0,0,0,0.08)",
+                  })
+                }
+              >
+                <img
+                  src={scheduleIcon}
+                  alt="Schedule"
+                  style={{
+                    width: "140%",
+                    height: "140%",
+                    borderRadius: "50%",
+                    objectFit: "cover",
+                  }}
+                />
+              </div>
+
+              <span
                 style={{
-                  margin: 0,
-                  fontSize: "0.9rem",
-                  color: colors.textMuted,
+                  fontSize: "0.95rem",
+                  fontWeight: 600,
+                  color: colors.textMain,
                 }}
               >
-                See upcoming appointments or book a new one.
-              </p>
-            </button>
+                Schedule an Appointment
+              </span>
+            </div>
           </div>
         </section>
       </div>
