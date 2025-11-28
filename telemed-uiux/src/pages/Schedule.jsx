@@ -63,7 +63,7 @@ export default function Schedule() {
       date: day.date,
       time,
     });
-    setBookingMessage(""); // clear any old message when changing time
+    setBookingMessage("");
   };
 
   const handleBook = () => {
@@ -174,6 +174,8 @@ export default function Schedule() {
                       display: "flex",
                       alignItems: "center",
                       gap: "0.6rem",
+                      color: isActive ? colors.primaryLight : colors.textMain,
+                      transition: "background-color 0.15s ease, border 0.15s ease",
                     }}
                   >
                     <img
@@ -228,7 +230,7 @@ export default function Schedule() {
                 display: "flex",
                 flexDirection: "column",
                 gap: "0.75rem",
-                height: "420px", // fixed height so card doesn't jump
+                height: "420px",
                 overflow: "hidden",
               }}
             >
@@ -296,8 +298,10 @@ export default function Schedule() {
                       border: "none",
                       backgroundColor: selectedSlot
                         ? colors.primaryDark
-                        : "#CBD5E1",
-                      color: colors.surface,
+                        : colors.surface,
+                      color: selectedSlot
+                        ? colors.surface
+                        : colors.textMuted,
                       fontWeight: 600,
                       fontSize: "0.85rem",
                       cursor: selectedSlot ? "pointer" : "not-allowed",
@@ -305,6 +309,7 @@ export default function Schedule() {
                         ? "0 4px 10px rgba(0,0,0,0.15)"
                         : "none",
                       whiteSpace: "nowrap",
+                      transition: "background-color 0.15s ease, color 0.15s ease",
                     }}
                   >
                     Book Appointment
@@ -351,7 +356,7 @@ export default function Schedule() {
                           borderRadius: "0.6rem",
                           border: `1px solid ${colors.border}`,
                           padding: "0.6rem 0.7rem",
-                          backgroundColor: "#F7F9FC",
+                          backgroundColor: colors.surface,
                           maxWidth: "100%",
                           boxSizing: "border-box",
                         }}
@@ -392,11 +397,11 @@ export default function Schedule() {
                                   border: isSelected
                                     ? `2px solid ${colors.primaryDark}`
                                     : `1px solid ${colors.border}`,
-                                  backgroundColor: isSelected
-                                    ? colors.primaryLight
-                                    : colors.surface,
+                                  backgroundColor: isSelected ? colors.primaryDark : colors.surface,
+                                  color: isSelected ? colors.surface : colors.textMain,
                                   fontSize: "0.85rem",
                                   cursor: "pointer",
+                                  transition:"background-color 0.15s ease, border 0.15s ease",
                                 }}
                               >
                                 {time}
@@ -415,10 +420,10 @@ export default function Schedule() {
                 <div
                   style={{
                     marginTop: "0.25rem",
-                    paddingTop: "0.25rem",
+                    paddingTop: "0.35rem",
                     borderTop: `1px solid ${colors.border}`,
                     fontSize: "0.85rem",
-                    color: colors.textMain,
+                    color: colors.success,
                   }}
                 >
                   {bookingMessage}

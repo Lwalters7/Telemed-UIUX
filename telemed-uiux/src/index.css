@@ -2,14 +2,86 @@
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
-  color-scheme: light;
-  background-color: #f5f7fa;
-  color: #1f2933;
-
   margin: 0;
   padding: 0;
+
+  /* default to light theme if no data-theme is set */
+  --color-primary: #4ba3ff;
+  --color-primary-light: #d8ecff;
+  --color-primary-dark: #1f6fcc;
+  --color-nav-blue: #123b7a;
+
+  --color-accent: #ff7a59;
+  --color-success: #32c48d;
+  --color-warning: #ffc857;
+  --color-danger: #e15554;
+
+  --color-bg: #f5f7fa;
+  --color-surface: #ffffff;
+  --color-border: #d3d9e5;
+  --color-lg-background: #f7f9fc;
+
+  --color-text-main: #1f2933;
+  --color-text-muted: #6b7280;
+
+  color-scheme: light;
 }
+
+/* light */
+:root[data-theme="light"] {
+  color-scheme: light;
+
+  --color-bg: #f5f7fa;
+  --color-surface: #ffffff;
+  --color-border: #d3d9e5;
+  --color-lg-background: #f7f9fc;
+
+  --color-text-main: #1f2933;
+  --color-text-muted: #6b7280;
+}
+
+/* dark */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  --color-bg: #020617;          /* page background */
+  --color-surface: #101319;     /* cards, nav surfaces */
+  --color-border: #374151;
+  --color-lg-background: #020617;
+  --color-primary-light: #1f6fcc;
+
+  --color-text-main: #f9fafb;
+  --color-text-muted: #9ca3af;
+}
+
+/* “System default” – treat as light for now */
+:root[data-theme="system"] {
+  color-scheme: light;
+  --color-bg: #f5f7fa;
+  --color-surface: #ffffff;
+  --color-border: #d3d9e5;
+  --color-lg-background: #f7f9fc;
+  --color-text-main: #1f2933;
+  --color-text-muted: #6b7280;
+}
+
+:root.high-contrast {
+  color-scheme: dark;
+  --color-bg: #000000;
+  --color-surface: #000000;
+  --color-border: #ffffff;
+  --color-text-main: #ffffff;
+  --color-text-muted: #e5e7eb;
+  --color-primary-light: #1f6fcc;
+  --color-lg-background: #000000;
+}
+
+:root.high-contrast a,
+:root.high-contrast button {
+  color: #000000;
+  background-color: #ffff00;
+}
+
 
 *,
 *::before,
@@ -20,6 +92,8 @@
 body {
   margin: 0;
   min-height: 100vh;
+  background-color: var(--color-bg);
+  color: var(--color-text-main);
 }
 
 a {

@@ -1,23 +1,23 @@
 // src/theme/colors.js
 const colors = {
-  primary: "#4BA3FF",
-  primaryLight: "#D8ECFF",
-  primaryDark: "#1F6FCC",
-  navBlue: "#123B7A",
+  primary: "var(--color-primary)",
+  primaryLight: "var(--color-primary-light)",
+  primaryDark: "var(--color-primary-dark)",
+  navBlue: "var(--color-nav-blue)",
 
-  accent: "#FF7A59",
-  success: "#32C48D",
-  warning: "#FFC857",
-  danger: "#E15554",
+  accent: "var(--color-accent)",
+  success: "var(--color-success)",
+  warning: "var(--color-warning)",
+  danger: "var(--color-danger)",
 
-  bgLight: "#F5F7FA",
-  bgDark: "#101319",
-  surface: "#FFFFFF",
-  border: "#D3D9E5",
-  lgBackground: "#F7F9FC",
+  bgLight: "var(--color-bg)",        // name is “light” but now theme-based
+  bgDark: "var(--color-bg)",         // you can add a separate dark bg var if needed
+  surface: "var(--color-surface)",
+  border: "var(--color-border)",
+  lgBackground: "var(--color-lg-background)",
 
-  textMain: "#1F2933",
-  textMuted: "#6B7280",
+  textMain: "var(--color-text-main)",
+  textMuted: "var(--color-text-muted)",
 };
 
 export default colors;

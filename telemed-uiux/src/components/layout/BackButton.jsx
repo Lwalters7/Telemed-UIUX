@@ -2,8 +2,17 @@
 import { useNavigate } from "react-router-dom";
 import colors from "../../theme/colors";
 
-export default function BackButton() {
+export default function BackButton( { onBack } ) {
   const navigate = useNavigate();
+
+  const handleClick = () => {
+    if (onBack) {
+      onBack();
+    }
+    else {
+      navigate(-1);
+    }
+  };
 
   const style = {
     fontSize: "3.8rem",      // big + readable
@@ -22,7 +31,7 @@ export default function BackButton() {
     <button
       type="button"
       style={style}
-      onClick={() => navigate("/home")}
+      onClick={() => handleClick()}
     >
       ←
     </button>

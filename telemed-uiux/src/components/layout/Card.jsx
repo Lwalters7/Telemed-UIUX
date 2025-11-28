@@ -5,8 +5,10 @@ export default function Card({ children, size = "wide" }) {
   const isNarrow = size === "narrow";
 
   const cardStyle = {
-    width: "100%",
+    width: isNarrow ? "auto" : "100%",
     maxWidth: isNarrow ? "600px" : "1100px",
+    minWidth: isNarrow ? "360px" : "auto",
+    flexShrink: 0,
     backgroundColor: colors.surface,
     borderRadius: "1.25rem",
     padding: 0,                  // no padding so NavBar can touch edges
