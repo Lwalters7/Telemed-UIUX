@@ -17,7 +17,8 @@ export default function AccessibilityPg() {
   const [saveMsg, setSaveMsg] = useState("");
 
   const sectionCard = {
-    backgroundColor: colors.lg,
+    width: "100%",
+    backgroundColor: colors.lgBackground,
     border: `1px solid ${colors.border}`,
     borderRadius: "0.9rem",
     padding: "1.25rem 1.5rem",
@@ -72,7 +73,7 @@ export default function AccessibilityPg() {
   }, []);
 
   return (
-    <Card size="narrow">
+    <Card size="wide">
       <NavBar />
       <div style={{ padding: "2rem 2.5rem" }}>
         <BackButton 

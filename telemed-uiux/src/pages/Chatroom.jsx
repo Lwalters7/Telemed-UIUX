@@ -107,7 +107,8 @@ export default function Chatroom() {
           {/* LEFT SIDE — DOCTOR LIST */}
           <aside
             style={{
-              width: "260px",
+              maxWidth: "260px",
+              width: "100%",
               minWidth: "220px",
               borderRadius: "0.75rem",
               border: `1px solid ${colors.border}`,

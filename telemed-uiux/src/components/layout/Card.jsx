@@ -6,7 +6,7 @@ export default function Card({ children, size = "wide" }) {
 
   const cardStyle = {
     width: isNarrow ? "auto" : "100%",
-    maxWidth: isNarrow ? "600px" : "1100px",
+    maxWidth: isNarrow ? "700px" : "1200px",
     minWidth: isNarrow ? "360px" : "auto",
     flexShrink: 0,
     backgroundColor: colors.surface,

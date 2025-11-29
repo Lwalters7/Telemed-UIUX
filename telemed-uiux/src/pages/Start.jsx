@@ -8,12 +8,20 @@ import docTelemed from "../assets/telemed-doctor.webp";
 
 export default function Start() {
   const navigate = useNavigate();
-  const [buttonHover, setButtonHover] = useState(false);
-  
+  const [loginHover, setLoginHover] = useState(false);
+  const [secondaryHover, setSecondaryHover] = useState(false);
+
+  const labelStyle = {
+    fontSize: "0.8rem",
+    fontWeight: 600,
+    textTransform: "uppercase",
+    letterSpacing: "0.08em",
+    color: colors.primaryDark,
+  };
 
   return (
     <>
-      <div
+      <main
         style={{
           minHeight: "100vh",
           display: "flex",
@@ -22,191 +30,283 @@ export default function Start() {
           padding: "3rem 1.5rem",
         }}
       >
-        <div
-          style={{
-            display: "flex",
-            gap: "3rem",
-            width: "100%",
-            maxWidth: "1100px",
-            justifyContent: "center",
-            flexWrap: "wrap",
-          }}
-        >
-          {/* about card*/}
-          <Card size="narrow">
-            <div style={{ padding: "2rem 2.5rem", maxWidth: "520px" }}>
-              <h1
+        <Card size="wide">
+          <div
+            style={{
+              padding: "2.5rem clamp(2rem, 4vw, 3rem)",
+            }}
+          >
+            <section
+              style={{
+                display: "flex",
+                flexWrap: "wrap",
+                gap: "2.5rem",
+                alignItems: "center",
+                justifyContent: "space-between",
+              }}
+            >
+              <div
                 style={{
-                  fontSize: "2rem",
-                  marginBottom: "1.25rem",
-                  color: colors.textMain,
+                  flex: "1 1 260px",
+                  maxWidth: "640px",
                 }}
               >
-                Welcome to TeleMed!
-              </h1>
+                <div style={labelStyle}>Welcome to TeleMed</div>
 
-              <h2
-                style={{
-                  fontSize: "1.05rem",
-                  marginBottom: "0.75rem",
-                  fontWeight: 600,
-                  color: colors.primary, 
-                }}
-              >
-                About Us
-              </h2>
+                <h1
+                  style={{
+                    margin: "0.6rem 0 0.4rem",
+                    fontSize: "clamp(1.9rem, 3vw, 2.3rem)",
+                    color: colors.textMain,
+                  }}
+                >
+                  Online Healthcare That Feels Simple and Supportive
+                </h1>
 
-              <p
-                style={{
-                  marginBottom: "0.75rem",
-                  lineHeight: 1.6,
-                  color: colors.textMuted,
-                }}
-              >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
-                nec metus sed diam hendrerit vulputate. Curabitur non consequat
-                nisi. Duis eget rutrum enim. Cras a elit neque, viverra elit.
-              </p>
+                <p
+                  style={{
+                    margin: "0.4rem 0 0.75rem",
+                    fontSize: "0.95rem",
+                    color: colors.textMuted,
+                    lineHeight: 1.6,
+                  }}
+                >
+                  TeleMed is designed to make online healthcare simple,
+                  accessible, and stress-free for everyone,
+                  especially for users who may not feel confident with
+                  technology. We focus on providing a clean, easy-to-navigate
+                  experience that helps patients connect with trusted doctors quickly
+                  and comfortably from home.
+                </p>
 
-              <p
-                style={{
-                  marginBottom: "1.5rem",
-                  lineHeight: 1.6,
-                  color: colors.textMuted,
-                }}
-              >
-                Curabitur placerat vulputate nisl et dictum. In mauris ante,
-                elementum non elit et, elementum orci sagittis. Integer ex
-                volutpat eget. Ut tempus tortor at velit arcu, ut privat mi
-                consectetur.
-              </p>
+                <p
+                  style={{
+                    margin: "0.4rem 0 0.75rem",
+                    fontSize: "0.95rem",
+                    color: colors.textMuted,
+                    lineHeight: 1.6,
+                  }}
+                >
+                  Chat with a Healthcare Professional today!
+                </p>
+
+                <div
+                  style={{
+                    display: "flex",
+                    flexWrap: "wrap",
+                    gap: "0.75rem",
+                    alignItems: "center",
+                  }}
+                >
+                  <button
+                    type="button"
+                    onClick={() => navigate("/login")}
+                    onMouseEnter={() => setLoginHover(true)}
+                    onMouseLeave={() => setLoginHover(false)}
+                    style={{
+                      padding: "0.75rem 1.6rem",
+                      borderRadius: "999px",
+                      border: "none",
+                      backgroundColor: loginHover
+                        ? colors.primary
+                        : colors.primaryDark,
+                      color: colors.surface,
+                      fontWeight: 600,
+                      fontSize: "0.96rem",
+                      cursor: "pointer",
+                      transition: "background-color 0.15s ease",
+                      boxShadow:
+                        "0 8px 24px rgba(15, 23, 42, 0.18)",
+                    }}
+                  >
+                    Log in / Register
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() => navigate("/home")}
+                    onMouseEnter={() => setSecondaryHover(true)}
+                    onMouseLeave={() => setSecondaryHover(false)}
+                    style={{
+                      padding: "0.7rem 1.3rem",
+                      borderRadius: "999px",
+                      border: `1px solid ${colors.border}`,
+                      backgroundColor: secondaryHover
+                        ? colors.primaryLight
+                        : "transparent",
+                      color: secondaryHover
+                        ? colors.primaryDark
+                        : colors.textMain,
+                      fontWeight: 500,
+                      fontSize: "0.9rem",
+                      cursor: "pointer",
+                      transition:
+                        "background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease",
+                    }}
+                  >
+                    Explore the app (for demo)
+                  </button>
+                </div>
+              </div>
 
               <div
                 style={{
-                  borderRadius: "18px",
-                  overflow: "hidden",
-                  marginTop: "0.5rem",
+                  flex: "1 1 260px",
+                  display: "flex",
+                  justifyContent: "center",
                 }}
               >
-                <img
-                  src={docTelemed}
-                  alt="Doctor using a phone"
+                <div
                   style={{
+                    borderRadius: "1.25rem",
+                    overflow: "hidden",
+                    maxWidth: "420px",
                     width: "100%",
-                    height: "230px",
-                    objectFit: "cover",
-                    display: "block",
+                    boxShadow: "0 18px 40px rgba(15, 23, 42, 0.24)",
                   }}
-                />
+                >
+                  <img
+                    src={docTelemed}
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      maxHeight: "320px",
+                      objectFit: "cover",
+                      display: "block",
+                    }}
+                  />
+                </div>
               </div>
-            </div>
-          </Card>
+            </section>
 
-          {/* get started card */}
-          <Card size="narrow">
-            <div
+            {/* goals section*/}
+            <section
               style={{
-                padding: "2rem 2.5rem",
-                width: "360px",
-                maxWidth: "100%",
+                marginTop: "2.5rem",
               }}
             >
               <h2
                 style={{
-                  textAlign: "center",
+                  margin: "0 0 0.5rem",
                   fontSize: "1.25rem",
-                  marginBottom: "1.75rem",
                   color: colors.textMain,
                 }}
               >
-                Get Started
+                Our Goals
               </h2>
-
+              
               <div
                 style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: "0.9rem",
+                  display: "grid",
+                  gridTemplateColumns:
+                    "repeat(auto-fit, minmax(220px, 1fr))",
+                  gap: "1rem",
                 }}
               >
-                <button
-                  type="button"
+                {/* Goal 1 */}
+                <article
                   style={{
-                    width: "100%",
-                    padding: "0.75rem 1rem",
-                    borderRadius: "999px",
-                    border: "none",
-                    backgroundColor: colors.primary,
-                    color: colors.surface,
-                    fontWeight: 600,
-                    fontSize: "0.95rem",
-                    cursor: "pointer",
+                    borderRadius: "0.9rem",
+                    backgroundColor: colors.lgBackground,
+                    border: `1px solid ${colors.border}`,
+                    padding: "1rem 1.2rem",
                   }}
                 >
-                  Telemed&apos;s Goal #1
-                </button>
+                  <h3
+                    style={{
+                      margin: 0,
+                      marginBottom: "0.4rem",
+                      fontSize: "1rem",
+                      color: colors.textMain,
+                    }}
+                  >
+                    Make healthcare accessible for everyone
+                  </h3>
+                  <p
+                    style={{
+                      margin: 0,
+                      fontSize: "0.9rem",
+                      color: colors.textMuted,
+                      lineHeight: 1.6,
+                    }}
+                  >
+                    TeleMed is built with accessibility in mind. With clear text,
+                    larger font options, strong contrast, simple navigation
+                    support seniors and users with visual or cognitive
+                    challenges.
+                  </p>
+                </article>
 
-                <button
-                  type="button"
+                {/* Goal 2 */}
+                <article
                   style={{
-                    width: "100%",
-                    padding: "0.75rem 1rem",
-                    borderRadius: "999px",
-                    border: "none",
-                    backgroundColor: colors.primary,
-                    color: colors.surface,
-                    fontWeight: 600,
-                    fontSize: "0.95rem",
-                    cursor: "pointer",
+                    borderRadius: "0.9rem",
+                    backgroundColor: colors.lgBackground,
+                    border: `1px solid ${colors.border}`,
+                    padding: "1rem 1.2rem",
                   }}
                 >
-                  Telemed&apos;s Goal #2
-                </button>
+                  <h3
+                    style={{
+                      margin: 0,
+                      marginBottom: "0.4rem",
+                      fontSize: "1rem",
+                      color: colors.textMain,
+                    }}
+                  >
+                    Connect patients with doctors quickly and safely
+                  </h3>
+                  <p
+                    style={{
+                      margin: 0,
+                      fontSize: "0.9rem",
+                      color: colors.textMuted,
+                      lineHeight: 1.6,
+                    }}
+                  >
+                    From choosing a doctor to viewing available times and
+                    starting a visit, TeleMed reduces extra steps so you can get
+                    care faster without navigating complex menus.
+                  </p>
+                </article>
 
-                <button
-                  type="button"
+                {/* Goal 3 */}
+                <article
                   style={{
-                    width: "100%",
-                    padding: "0.75rem 1rem",
-                    borderRadius: "999px",
-                    border: "none",
-                    backgroundColor: colors.primary,
-                    color: colors.surface,
-                    fontWeight: 600,
-                    fontSize: "0.95rem",
-                    cursor: "pointer",
+                    borderRadius: "0.9rem",
+                    backgroundColor: colors.lgBackground,
+                    border: `1px solid ${colors.border}`,
+                    padding: "1rem 1.2rem",
                   }}
                 >
-                  Telemed&apos;s Goal #3
-                </button>
-
-                {/* Log in button */}
-                <button
-                  type="button"
-                  onClick={() => navigate("/login")}
-                  onMouseEnter={() => setButtonHover(true)}
-                  onMouseLeave={() => setButtonHover(false)}
-                  style={{
-                    width: "100%",
-                    padding: "0.8rem 1rem",
-                    borderRadius: "999px",
-                    border: `none`,
-                    backgroundColor: buttonHover ? colors.primary : colors.primaryDark,
-                    color: colors.surface,
-                    fontWeight: 600,
-                    fontSize: "0.95rem",
-                    marginTop: "0.4rem",
-                    cursor: "pointer",
-                    transition: "background-color 0.2s ease",
-                  }}
-                >
-                  Log in/Register
-                </button>
+                  <h3
+                    style={{
+                      margin: 0,
+                      marginBottom: "0.4rem",
+                      fontSize: "1rem",
+                      color: colors.textMain,
+                    }}
+                  >
+                    Reduce stress during online medical visits
+                  </h3>
+                  <p
+                    style={{
+                      margin: 0,
+                      fontSize: "0.9rem",
+                      color: colors.textMuted,
+                      lineHeight: 1.6,
+                    }}
+                  >
+                    Calm layouts, predictable flows, and clear labels reduce
+                    confusion and anxiety so patients can focus on their visit,
+                    not on figuring out what to click next.
+                  </p>
+                </article>
               </div>
-            </div>
-          </Card>
-        </div>
-      </div>
+            </section>
+          </div>
+        </Card>
+      </main>
     </>
   );
 }

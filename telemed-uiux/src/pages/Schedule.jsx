@@ -133,7 +133,7 @@ export default function Schedule() {
           <div
             style={{
               display: "grid",
-              gridTemplateColumns: "minmax(0, 230px) minmax(0, 1fr)",
+              gridTemplateColumns: "minmax(180px, 330px) 1fr",
               gap: "1.25rem",
             }}
           >
@@ -226,11 +226,12 @@ export default function Schedule() {
                 borderRadius: "0.75rem",
                 border: `1px solid ${colors.border}`,
                 backgroundColor: colors.surface,
-                padding: "0.9rem 1rem",
+                padding: "1rem clamp(1rem, 2vw, 2rem)",
                 display: "flex",
                 flexDirection: "column",
                 gap: "0.75rem",
-                height: "420px",
+                minHeight: "420px",
+                height: "auto",
                 overflow: "hidden",
               }}
             >

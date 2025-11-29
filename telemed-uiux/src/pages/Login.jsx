@@ -14,7 +14,7 @@ export default function Login() {
   return (
     <Card size="narrow">
       <div style={{ padding: "2rem 2.5rem" }}>
-        <section style={{ maxWidth: "420px", margin: "0 auto" }}>
+        <section style={{ maxWidth: "480px", margin: "0 auto" }}>
           <h2
             style={{
               marginBottom: "1rem",

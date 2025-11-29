@@ -10,8 +10,8 @@ const colors = {
   warning: "var(--color-warning)",
   danger: "var(--color-danger)",
 
-  bgLight: "var(--color-bg)",        // name is “light” but now theme-based
-  bgDark: "var(--color-bg)",         // you can add a separate dark bg var if needed
+  bgLight: "var(--color-bg)",
+  bgDark: "var(--color-bg)",
   surface: "var(--color-surface)",
   border: "var(--color-border)",
   lgBackground: "var(--color-lg-background)",

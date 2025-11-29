@@ -113,7 +113,7 @@ const avatarButtonStyle = {
 
   const handleLogout = () => {
     setMenuOpen(false);
-    alert("You have been logged out. (Demo only, no real session.)");
+    navigate("/");
   };
 
   return (
